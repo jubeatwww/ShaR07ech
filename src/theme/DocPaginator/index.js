@@ -1,11 +1,11 @@
 import React from 'react';
-import MDXContent from '@theme-original/MDXContent';
+import DocPaginator from '@theme-original/DocPaginator';
 import Giscus from "@giscus/react";
 
-export default function MDXContentWrapper(props) {
+export default function DocPaginatorWrapper(props) {
   return (
     <>
-      <MDXContent {...props} />
+      <DocPaginator {...props} style={{marginBottom: "20px"}} />
       <Giscus
         id="comments"
         repo="jubeatwww/ShaR07ech"
