@@ -69,14 +69,26 @@ const config: Config = {
           /*
           @example filename = '1. Two Sum.md'
           * */
-          const numberPrefix = filename.match(/^\d+\./)?.[0];
+          const numberPrefix = filename.match(/^\d+/)?.[0];
           if (numberPrefix) {
             return {
-              numberPrefix: numberPrefix.slice(0, -1),
+              numberPrefix: numberPrefix.slice(0, -1).padStart(4, '0'),
               filename,
             };
           }
           return {numberPrefix: undefined, filename};
+        },
+        async sidebarItemsGenerator({
+          defaultSidebarItemsGenerator,
+          ...args
+        }) {
+          const sidebarItems = await defaultSidebarItemsGenerator(args);
+          for (const item of sidebarItems) {
+            if (item.type === 'doc') {
+              item.label = item.id;
+            }
+          }
+          return sidebarItems;
         },
       },
     ],
