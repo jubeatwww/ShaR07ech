@@ -4,6 +4,24 @@ import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
+type SidebarItem = { type: 'category', label: string, items: SidebarItem[] } | {
+  type: 'doc',
+  label?: string,
+  id: string
+};
+
+const mapLabelForSidebar = (items: SidebarItem[], labelMap: Map<string, [string, string]>) => {
+  items.forEach((item) => {
+    if (item.type === 'category') {
+      mapLabelForSidebar(item.items, labelMap);
+    } else if (item.type === 'doc' && labelMap.has(item.id)) {
+      const [tag, title] = labelMap.get(item.id)
+      const label = tag.charAt(0).toUpperCase() + tag.slice(1)
+      item.label = `[${label}] ${title}`
+    }
+  });
+}
+
 const config: Config = {
   title: 'ShaR07ech',
   tagline: 'Dinosaurs are cool',
@@ -43,6 +61,21 @@ const config: Config = {
           breadcrumbs: true,
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
+          async sidebarItemsGenerator({
+            defaultSidebarItemsGenerator,
+            ...args
+          }) {
+            const labelMap = new Map<string, [string, string]>();
+            args.docs.forEach((doc) => {
+              if (doc.frontMatter?.tags?.length) {
+                labelMap.set(doc.id, [doc.frontMatter.tags[0].toString(), doc.title]);
+              }
+            });
+            const sidebarItems = await defaultSidebarItemsGenerator(args);
+            // @ts-ignore
+            mapLabelForSidebar(sidebarItems, labelMap);
+            return sidebarItems;
+          },
         },
         blog: {
           showReadingTime: true,
