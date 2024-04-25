@@ -24,11 +24,11 @@ const mapLabelForSidebar = (items: SidebarItem[], labelMap: Map<string, [string,
 
 const config: Config = {
   title: 'ShaR07ech',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'A blog about programming, algorithms, and life.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://www.shar0.dev',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
