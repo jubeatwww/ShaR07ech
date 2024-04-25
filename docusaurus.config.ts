@@ -163,8 +163,8 @@ gtag('config', 'G-1P40RLG7NV');`,
     navbar: {
       title: 'ShaR07ech',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'ShaR07ech Logo',
+        src: 'img/logo.png',
       },
       items: [
         {
