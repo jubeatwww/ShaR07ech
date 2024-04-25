@@ -62,9 +62,9 @@ const config: Config = {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
           async sidebarItemsGenerator({
-            defaultSidebarItemsGenerator,
-            ...args
-          }) {
+                                        defaultSidebarItemsGenerator,
+                                        ...args
+                                      }) {
             const labelMap = new Map<string, [string, string]>();
             args.docs.forEach((doc) => {
               if (doc.frontMatter?.tags?.length) {
@@ -112,9 +112,9 @@ const config: Config = {
           return {numberPrefix: undefined, filename};
         },
         async sidebarItemsGenerator({
-          defaultSidebarItemsGenerator,
-          ...args
-        }) {
+                                      defaultSidebarItemsGenerator,
+                                      ...args
+                                    }) {
           const sidebarItems = await defaultSidebarItemsGenerator(args);
           for (const item of sidebarItems) {
             if (item.type === 'doc') {
@@ -135,6 +135,26 @@ const config: Config = {
         'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
       crossorigin: 'anonymous',
     },
+  ],
+
+  scripts: [
+    {
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-1P40RLG7NV',
+      async: true,
+    }
+  ],
+
+  headTags: [
+    {
+      tagName: 'script',
+      innerHTML: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1P40RLG7NV');`,
+      attributes: {
+        type: 'text/javascript',
+      },
+    }
   ],
 
   themeConfig: {
