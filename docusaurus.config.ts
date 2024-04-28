@@ -84,10 +84,6 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-        sitemap: {
-          // @ts-ignore
-          lastmod: 'date',
-        }
       } satisfies Preset.Options,
     ],
   ],
