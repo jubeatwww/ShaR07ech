@@ -84,6 +84,10 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        sitemap: {
+          // @ts-ignore
+          lastmod: 'date',
+        }
       } satisfies Preset.Options,
     ],
   ],
@@ -159,8 +163,6 @@ gtag('config', 'G-1P40RLG7NV');`,
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'ShaR07ech',
       logo: {
