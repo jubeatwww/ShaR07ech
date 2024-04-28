@@ -78,6 +78,7 @@ const config: Config = {
           },
         },
         blog: {
+          path: 'note-box/blogs',
           showReadingTime: true,
         },
         theme: {
@@ -180,7 +181,7 @@ gtag('config', 'G-1P40RLG7NV');`,
           label: '解題',
           docsPluginId: 'online-judge',
         },
-        // {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/jubeatwww',
           label: 'GitHub',
