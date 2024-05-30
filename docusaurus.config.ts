@@ -61,6 +61,7 @@ const config: Config = {
           path: 'note-box/posts',
           exclude: ['.obsidian', '*.canvas'],
           breadcrumbs: true,
+          showLastUpdateTime: true,
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
           async sidebarItemsGenerator({
