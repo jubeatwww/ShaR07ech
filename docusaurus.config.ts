@@ -100,6 +100,7 @@ const config: Config = {
         routeBasePath: 'oj',
         sidebarPath: './sidebarsOnlineJudge.ts',
         exclude: ['.obsidian', '*.canvas'],
+        showLastUpdateTime: true,
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
         numberPrefixParser(filename: string) {
