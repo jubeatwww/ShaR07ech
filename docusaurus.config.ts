@@ -146,6 +146,12 @@ const config: Config = {
     {
       src: 'https://www.googletagmanager.com/gtag/js?id=G-1P40RLG7NV',
       async: true,
+    },
+    {
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299052635911906',
+      type: 'text/javascript',
+      async: true,
+      crossorigin: 'anonymous',
     }
   ],
 
